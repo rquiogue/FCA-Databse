@@ -1,0 +1,19 @@
+.nav {
+    height: 10rem;
+    width: 100%;
+    background-color: #fffcff;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+}
+
+.nav img {
+    height: 9rem;
+}
+
+.home-btn {
+    height: 9rem;
+    cursor: pointer;
+}
