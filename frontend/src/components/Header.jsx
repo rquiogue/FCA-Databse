@@ -1,7 +1,22 @@
 import React from "react";
 import "./Header.css";
-import logo from "./FCA.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  Link,
+  Image,
+  Text,
+  Icon
+} from '@chakra-ui/react'
+import logo from '../assets/FCA.png'
+import {
+  BellIcon,
+  DownloadIcon,
+} from '@chakra-ui/icons'
+import {
+  FaTools
+} from 'react-icons/fa'
+import {
+  BsDatabaseFillAdd
+} from 'react-icons/bs'
 
 const Header = () => {
   const homeButtonClickHandler = () => {
@@ -9,14 +24,52 @@ const Header = () => {
   } 
 
   return (
-    <div className="nav">
-
-      <div className="nav-btn">Enter Data</div>
-      <div className="nav-btn">Get Info</div>
-      <img className="home-btn" src={logo} alt="FCA" onClick={homeButtonClickHandler}/>
-      <div className="nav-btn">Utilities</div>
-      <div className="nav-btn">Source Code</div>
-    </div>
+    <nav className="nav">
+      <div className="nav-group">
+        <Link href='/'>
+            <Image src={logo} alt='FCA logo' 
+                height={"5rem"}
+                margin={"0.5rem"}>
+            </Image>
+        </Link>
+      </div>
+      <div className="nav-group">
+        <div className="nav-link-wrapper">
+        <Link href='/data' justify={'center'}>
+          <div className="nav-item">
+          <Icon as={BsDatabaseFillAdd}/>
+          <Text fontSize='2xl'> Data</Text>
+          </div>
+        </Link>
+        </div>
+        <div className="nav-link-wrapper">
+        <Link href='/utilities' justify={'center'}>
+          <div className="nav-item">
+          <Icon as={FaTools}/>
+          <Text fontSize='2xl'> Utilities</Text>
+          </div>
+        </Link>
+        </div>
+      </div>
+      <div className="nav-group">
+      <div className="nav-link-wrapper">
+        <Link href='/contact' justify={'center'}>
+          <div className="nav-item">
+          <BellIcon/>
+          <Text fontSize='xl'> Contact Me</Text>
+          </div>
+        </Link>
+        </div>
+        <div className="nav-link-wrapper">
+        <Link href='https://github.com/rquiogue/FCA-Databse' justify={'center'} isExternal>
+          <div className="nav-item">
+          <DownloadIcon/>
+          <Text fontSize='xl'> Source Code</Text>
+          </div>
+        </Link>
+        </div>
+      </div>
+    </nav>
   );
 };
 

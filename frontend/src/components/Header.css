@@ -1,19 +1,29 @@
 .nav {
-    height: 10rem;
-    width: 100%;
-    background-color: #fffcff;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  height: 6rem;
+  width: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  border-bottom: lightgray;
+  box-shadow: 0rem 0rem 2rem lightgray;
+  justify-content: space-around;
 }
 
-.nav img {
-    height: 9rem;
+.nav-group {
+  gap: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.home-btn {
-    height: 9rem;
-    cursor: pointer;
+.nav-item {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.nav-link-wrapper:hover {
+  color: #E53E3E;
 }

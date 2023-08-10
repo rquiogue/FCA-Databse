@@ -1,11 +1,12 @@
 import React from 'react'
-import Header from './components/Header'
+import HomeScreen from './screens/HomeScreen'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const App = () => {
-  return ( <>
-      <Header />
-      <p>asdasda</p>
-    </>
+  return ( 
+    < ChakraProvider>
+      <HomeScreen />
+    </ChakraProvider>
   )
 }
 
