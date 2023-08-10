@@ -56,7 +56,7 @@ const HomeScreen = () => {
         <Spacer/>
         <Spacer/>
         <Center>
-            <Text>Created by Ryan Quiogue</Text>
+            <Text>Created by Ryan Quiogue 2023</Text>
         </Center>
     </div>
   )

@@ -11,12 +11,16 @@ import {
 } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import Loader from './components/Loader';
+import DataBasicScreen from './screens/DataBasicScreen';
+import UtilitiesBasicScreen from './screens/UtilitiesBasicScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} >
       <Route index={true} path='/' element={<HomeScreen />} />
       <Route path='/utilities/statistics/:filter' element={<Loader />} />
+      <Route path='/data' element={<DataBasicScreen />} />
+      <Route path='/utilities' element={<UtilitiesBasicScreen />} />
     </Route>
   )
 )

@@ -19,7 +19,7 @@ const HomeInfoCards = () => {
             <Grid templateColumns={'1fr 1fr'} gap={'10rem'} marginX={'5rem'}> 
                 <Card shadow={'0 0 3px #E53E3E'}>
                     <CardHeader>
-                        <Link href='/data'>
+                        <Link href='/data' _hover={{color: 'red.500'}}>
                             <Heading size='lg'>Data</Heading>
                         </Link>
                     </CardHeader>
@@ -106,7 +106,7 @@ const HomeInfoCards = () => {
                 </Card>
                 <Card shadow={'0 0 3px #E53E3E'}>
                 <CardHeader>
-                    <Link href='/data'>
+                    <Link href='/data' _hover={{color: 'red.500'}}>
                         <Heading size='lg'>Utilities</Heading>
                     </Link>
                     </CardHeader>

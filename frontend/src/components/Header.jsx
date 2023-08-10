@@ -24,6 +24,8 @@ const Header = () => {
       <div className="nav-group">
         <Link href='/'>
             <Image src={logo} alt='FCA logo' 
+                style={{transition: '0.5s'}}
+                _hover={{filter: 'grayscale(100%)'}}
                 height={"4rem"}
                 margin={"0.5rem"}>
             </Image>
