@@ -1,20 +1,13 @@
 import React from 'react'
-import Header from '../components/Header'
 import HomeInfoCards from '../components/HomeInfoCards'
 import Loader from '../components/Loader'
 import Spacer from '../components/Spacer'
-import { background, transition, useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import {
-    Center,
-    Grid,
-    Card,
-    CardHeader,
+    Center,    
     Heading,
-    Box,
-    CardBody,
     Text,
-    Link
 } from '@chakra-ui/react'
 import './HomeScreen.css'
 
@@ -36,7 +29,6 @@ const HomeScreen = () => {
     if (isLoading){
         return (
             <>
-                <Header/>
                 <Spacer/>
                 <Spacer/>
                 <Spacer/>
@@ -49,7 +41,6 @@ const HomeScreen = () => {
 
   return (
     <div>
-        <Header/>
         <Spacer/>
         <Center>
             <Heading onClick={headingOnClickHandler} padding='1rem' borderRadius={'1rem'} style={{transition: '0.5s'}} _hover={{

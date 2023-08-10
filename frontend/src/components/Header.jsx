@@ -4,9 +4,9 @@ import {
   Link,
   Image,
   Text,
-  Icon
+  Icon,
 } from '@chakra-ui/react'
-import logo from '../assets/FCA.png'
+import logo from '../assets/FCA_logo_pt3.png'
 import {
   BellIcon,
   DownloadIcon,
@@ -19,16 +19,12 @@ import {
 } from 'react-icons/bs'
 
 const Header = () => {
-  const homeButtonClickHandler = () => {
-    window.location.href = '/';
-  } 
-
   return (
     <nav className="nav">
       <div className="nav-group">
         <Link href='/'>
             <Image src={logo} alt='FCA logo' 
-                height={"5rem"}
+                height={"4rem"}
                 margin={"0.5rem"}>
             </Image>
         </Link>
