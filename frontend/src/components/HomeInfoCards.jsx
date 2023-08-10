@@ -188,6 +188,24 @@ const HomeInfoCards = () => {
                             </Text>
                             </Box>
                             </Link>
+                            <Link href='/utilities/participation' style={{textDecoration: 'none'}}>
+                            <Box padding='0.5rem'
+                                borderRadius={'0.5rem'}
+                                style={{transition: '0.5s'}} 
+                                _hover={{
+                                    cursor: 'pointer',
+                                    background: 'red.400',
+                                    color: 'white'
+                                }}
+                            >
+                            <Heading size='sm' textTransform='uppercase'>
+                                Meeting Participation
+                            </Heading>
+                            <Text pt='2' fontSize='sm'>
+                                Displays the changes in meeting participation
+                            </Text>
+                            </Box>
+                            </Link>
                         </Stack>
                     </CardBody>
                 </Card>

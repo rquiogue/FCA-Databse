@@ -102,6 +102,26 @@ const UtilitiesBasicScreen = () => {
                     </Box>
                 </Link>
             </Card>
+            <Card width={'30rem'}>
+                <Link href='/data/modify/fam' style={{textDecoration: 'none'}}>
+                    <Box padding='0.5rem'
+                        borderRadius={'0.5rem'}
+                        style={{transition: '0.5s'}} 
+                        _hover={{
+                            cursor: 'pointer',
+                            background: 'red.400',
+                            color: 'white'
+                        }}
+                    >
+                        <Heading size='md' textTransform='uppercase'>
+                            Meeting Participation
+                        </Heading>
+                        <Text pt='2' fontSize='md'>
+                            Displays the changes in meeting participation
+                        </Text>
+                    </Box>
+                </Link>
+            </Card>
         </Grid>
     </Center>
 </div>
