@@ -63,7 +63,7 @@ const DataBasicScreen = () => {
                     </Link>
                 </Card>
                 <Card width={'30rem'}>
-                    <Link href='/data/modifify/individual' style={{textDecoration: 'none'}}>
+                    <Link href='/data/modify/individual' style={{textDecoration: 'none'}}>
                         <Box padding='0.5rem'
                             borderRadius={'0.5rem'}
                             style={{transition: '0.5s'}} 

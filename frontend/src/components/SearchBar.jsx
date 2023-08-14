@@ -4,15 +4,22 @@ import {
     InputGroup,
     Input,
     InputLeftElement,
+    Card,
 } from '@chakra-ui/react'
+import { SearchIcon } from '@chakra-ui/icons'
+import Spacer from './Spacer'
 
-const SearchBar = ({onChangeHandler}) => {
+const SearchBar = ({onChangeHandler, name}) => {
   return (
     <div>
+        <Spacer></Spacer>
         <Center>
-            <InputGroup>
-                <Input type='text' value={name} onChange={onChangeHandler} />
-            </InputGroup>
+            <Card>
+                <InputGroup>
+                <InputLeftElement><SearchIcon/></InputLeftElement>
+                    <Input type='text' value={name} onChange={onChangeHandler} />
+                </InputGroup>
+            </Card>
         </Center>
     </div>
   )
