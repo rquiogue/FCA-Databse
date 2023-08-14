@@ -11,15 +11,15 @@ import {
 } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import Loader from './components/Loader';
-import DataBasicScreen from './screens/DataBasicScreen';
-import UtilitiesBasicScreen from './screens/UtilitiesBasicScreen';
-import SpreadsheetInputScreen from './screens/SpreadsheetInputScreen';
-import IndividualInputScreen from './screens/IndividualInputScreen';
-import ModifyIndividualScreen from './screens/ModifyIndividualScreen';
-import ModifyFamScreen from './screens/ModifyFamScreen';
-import StatisticsScreen from './screens/StatisticsScreen';
-import RandMemberGenScreen from './screens/RandMemberGenScreen';
-import ElectionEligibilityScreen from './screens/ElectionEligibilityScreen';
+import DataBasicScreen from './screens/DataScreens/DataBasicScreen';
+import UtilitiesBasicScreen from './screens/UtilityScreens/UtilitiesBasicScreen';
+import SpreadsheetInputScreen from './screens/DataScreens/SpreadsheetInputScreen';
+import IndividualInputScreen from './screens/DataScreens/IndividualInputScreen';
+import ModifyIndividualScreen from './screens/DataScreens/ModifyIndividualScreen';
+import ModifyFamScreen from './screens/DataScreens/ModifyFamScreen';
+import StatisticsScreen from './screens/UtilityScreens/StatisticsScreen';
+import RandMemberGenScreen from './screens/UtilityScreens/RandMemberGenScreen';
+import ElectionEligibilityScreen from './screens/UtilityScreens/ElectionEligibilityScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

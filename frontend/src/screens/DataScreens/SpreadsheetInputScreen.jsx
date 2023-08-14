@@ -26,7 +26,7 @@ import {
     Th,
     Td,
 } from '@chakra-ui/react'
-import Spacer from '../components/Spacer'
+import Spacer from '../../components/Spacer'
 
 const SpreadsheetInputScreen = () => {
     const table = ['aasdad', 'asdasd', 'asgasfg', 'dfgjdf', 'aasdwqerqwerad', 'asdwqerqweraasd', 'cvzxcv', 'asdxzcvfeasd', 'adfghsadsasdad', 'aasdfasfcsdasd', 'aasasdfasfdad', 'asdcsxcsacasd',]

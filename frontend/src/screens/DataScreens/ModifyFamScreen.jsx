@@ -9,7 +9,7 @@ import {
     FormErrorMessage,
     Card,
 } from '@chakra-ui/react'
-import Spacer from '../components/Spacer'
+import Spacer from '../../components/Spacer'
 import { useState } from 'react'
 
 const ModifyFamScreen = () => {

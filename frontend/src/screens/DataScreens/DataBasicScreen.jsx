@@ -8,7 +8,7 @@ import {
     Text
  } from '@chakra-ui/react'
 import React from 'react'
-import Spacer from '../components/Spacer'
+import Spacer from '../../components/Spacer'
 
 const DataBasicScreen = () => {
   return (

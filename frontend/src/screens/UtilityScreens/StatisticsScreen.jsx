@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import Spacer from '../components/Spacer';
+import Spacer from '../../components/Spacer';
 import { Center, Heading } from '@chakra-ui/react';
 
 const StatisticsScreen = () => {
