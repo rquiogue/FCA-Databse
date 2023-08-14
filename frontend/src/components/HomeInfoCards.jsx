@@ -188,7 +188,7 @@ const HomeInfoCards = () => {
                             </Text>
                             </Box>
                             </Link>
-                            <Link href='/utilities/participation' style={{textDecoration: 'none'}}>
+                            <Link href='/utilities/statistics/meetings' style={{textDecoration: 'none'}}>
                             <Box padding='0.5rem'
                                 borderRadius={'0.5rem'}
                                 style={{transition: '0.5s'}} 

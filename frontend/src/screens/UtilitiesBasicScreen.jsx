@@ -31,7 +31,7 @@ const UtilitiesBasicScreen = () => {
                     color: 'white'
                 }}
             >
-                <Link href='/data/spreadsheet' style={{textDecoration: 'none'}}>
+                <Link href='/utilities/statistics/class' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
                     >
                         <Heading size='md' textTransform='uppercase'>
@@ -50,7 +50,7 @@ const UtilitiesBasicScreen = () => {
                             background: 'red.400',
                             color: 'white'
                         }}>
-                <Link href='/data/individual' style={{textDecoration: 'none'}} >
+                <Link href='/utilities/statistics/fam' style={{textDecoration: 'none'}} >
                     <Box padding='0.5rem'
                         
                     >
@@ -72,7 +72,7 @@ const UtilitiesBasicScreen = () => {
                     color: 'white'
                 }}
             >
-                <Link href='/data/modifify/individual' style={{textDecoration: 'none'}}>
+                <Link href='/utilities/random-member-generator' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
                     >
                         <Heading size='md' textTransform='uppercase'>
@@ -93,7 +93,7 @@ const UtilitiesBasicScreen = () => {
                     color: 'white'
                 }}    
             >
-                <Link href='/data/modify/fam' style={{textDecoration: 'none'}}>
+                <Link href='/utilities/eligibility' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
                     >
                         <Heading size='md' textTransform='uppercase'>
@@ -114,7 +114,7 @@ const UtilitiesBasicScreen = () => {
                     color: 'white'
                 }}
             >
-                <Link href='/data/modify/fam' style={{textDecoration: 'none'}}>
+                <Link href='/utilities/statistics/meetings' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
                     >
                         <Heading size='md' textTransform='uppercase'>
