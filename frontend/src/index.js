@@ -13,6 +13,8 @@ import HomeScreen from './screens/HomeScreen';
 import Loader from './components/Loader';
 import DataBasicScreen from './screens/DataBasicScreen';
 import UtilitiesBasicScreen from './screens/UtilitiesBasicScreen';
+import SpreadsheetInputScreen from './screens/SpreadsheetInputScreen';
+import IndividualInputScreen from './screens/IndividualInputScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +22,8 @@ const router = createBrowserRouter(
       <Route index={true} path='/' element={<HomeScreen />} />
       <Route path='/utilities/statistics/:filter' element={<Loader />} />
       <Route path='/data' element={<DataBasicScreen />} />
+      <Route path='/data/spreadsheet' element={<SpreadsheetInputScreen />} />
+      <Route path='/data/individual' element={<IndividualInputScreen />} />
       <Route path='/utilities' element={<UtilitiesBasicScreen />} />
     </Route>
   )

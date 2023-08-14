@@ -22,16 +22,17 @@ const UtilitiesBasicScreen = () => {
     <Spacer></Spacer>
     <Center>
         <Grid templateColumns={'1fr 1fr'} columnGap='20rem' rowGap={'5rem'}>
-            <Card width='30rem' >
+            <Card width='30rem' 
+                borderRadius={'0.5rem'}
+                style={{transition: '0.5s'}} 
+                _hover={{
+                    cursor: 'pointer',
+                    background: 'red.400',
+                    color: 'white'
+                }}
+            >
                 <Link href='/data/spreadsheet' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
-                        borderRadius={'0.5rem'}
-                        style={{transition: '0.5s'}} 
-                        _hover={{
-                            cursor: 'pointer',
-                            background: 'red.400',
-                            color: 'white'
-                        }}
                     >
                         <Heading size='md' textTransform='uppercase'>
                             Class statistics    
@@ -42,16 +43,16 @@ const UtilitiesBasicScreen = () => {
                     </Box>
                 </Link>
             </Card>
-            <Card width={'30rem'}>
-                <Link href='/data/individual' style={{textDecoration: 'none'}}>
-                    <Box padding='0.5rem'
-                        borderRadius={'0.5rem'}
+            <Card width={'30rem'} borderRadius={'0.5rem'}
                         style={{transition: '0.5s'}} 
                         _hover={{
                             cursor: 'pointer',
                             background: 'red.400',
                             color: 'white'
-                        }}
+                        }}>
+                <Link href='/data/individual' style={{textDecoration: 'none'}} >
+                    <Box padding='0.5rem'
+                        
                     >
                         <Heading size='md' textTransform='uppercase'>
                             Fam Statistics
@@ -62,16 +63,17 @@ const UtilitiesBasicScreen = () => {
                     </Box>
                 </Link>
             </Card>
-            <Card width={'30rem'}>
+            <Card width={'30rem'}
+                borderRadius={'0.5rem'}
+                style={{transition: '0.5s'}} 
+                _hover={{
+                    cursor: 'pointer',
+                    background: 'red.400',
+                    color: 'white'
+                }}
+            >
                 <Link href='/data/modifify/individual' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
-                        borderRadius={'0.5rem'}
-                        style={{transition: '0.5s'}} 
-                        _hover={{
-                            cursor: 'pointer',
-                            background: 'red.400',
-                            color: 'white'
-                        }}
                     >
                         <Heading size='md' textTransform='uppercase'>
                             Random Member Generator
@@ -82,16 +84,17 @@ const UtilitiesBasicScreen = () => {
                     </Box>
                 </Link>
             </Card>
-            <Card width={'30rem'}>
+            <Card width={'30rem'}
+                borderRadius={'0.5rem'}
+                style={{transition: '0.5s'}} 
+                _hover={{
+                    cursor: 'pointer',
+                    background: 'red.400',
+                    color: 'white'
+                }}    
+            >
                 <Link href='/data/modify/fam' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
-                        borderRadius={'0.5rem'}
-                        style={{transition: '0.5s'}} 
-                        _hover={{
-                            cursor: 'pointer',
-                            background: 'red.400',
-                            color: 'white'
-                        }}
                     >
                         <Heading size='md' textTransform='uppercase'>
                             Election eligibility
@@ -102,16 +105,17 @@ const UtilitiesBasicScreen = () => {
                     </Box>
                 </Link>
             </Card>
-            <Card width={'30rem'}>
+            <Card width={'30rem'}
+                borderRadius={'0.5rem'}
+                style={{transition: '0.5s'}} 
+                _hover={{
+                    cursor: 'pointer',
+                    background: 'red.400',
+                    color: 'white'
+                }}
+            >
                 <Link href='/data/modify/fam' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
-                        borderRadius={'0.5rem'}
-                        style={{transition: '0.5s'}} 
-                        _hover={{
-                            cursor: 'pointer',
-                            background: 'red.400',
-                            color: 'white'
-                        }}
                     >
                         <Heading size='md' textTransform='uppercase'>
                             Meeting Participation
