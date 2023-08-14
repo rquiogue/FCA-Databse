@@ -15,6 +15,8 @@ import DataBasicScreen from './screens/DataBasicScreen';
 import UtilitiesBasicScreen from './screens/UtilitiesBasicScreen';
 import SpreadsheetInputScreen from './screens/SpreadsheetInputScreen';
 import IndividualInputScreen from './screens/IndividualInputScreen';
+import ModifyIndividualScreen from './screens/ModifyIndividualScreen';
+import ModifyFamScreen from './screens/ModifyFamScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +26,9 @@ const router = createBrowserRouter(
       <Route path='/data' element={<DataBasicScreen />} />
       <Route path='/data/spreadsheet' element={<SpreadsheetInputScreen />} />
       <Route path='/data/individual' element={<IndividualInputScreen />} />
+      <Route path='/data/modify/individual' element={<ModifyIndividualScreen />} />
+      <Route path='/data/modify/fam' element={<ModifyFamScreen />} />
+      
       <Route path='/utilities' element={<UtilitiesBasicScreen />} />
     </Route>
   )
