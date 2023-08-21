@@ -38,7 +38,6 @@ const HomeScreen = () => {
         );
     }
 
-
   return (
     <div>
         <Spacer/>

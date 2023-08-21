@@ -31,9 +31,12 @@ import Spacer from '../../components/Spacer'
 const SpreadsheetInputScreen = () => {
     const table = ['aasdad', 'asdasd', 'asgasfg', 'dfgjdf', 'aasdwqerqwerad', 'asdwqerqweraasd', 'cvzxcv', 'asdxzcvfeasd', 'adfghsadsasdad', 'aasdfasfcsdasd', 'aasasdfasfdad', 'asdcsxcsacasd',]
 
+    const [eventName, setEventName] = useState('');
+    const [isEventNameError, setIsEventNameError] = useState(false);
+    const handleEventNameChange = (e) => setEventName(e.target.value);
+
     const [id, setID] = useState('');
     const [isIDError, setIsIDError] = useState(false);
-
     const handleIDChange = (e) => setID(e.target.value);
 
     const [spreadsheetData, setSpreasheetData] = useState([]);
@@ -43,6 +46,8 @@ const SpreadsheetInputScreen = () => {
     const handleSubmit = event => {
         event.preventDefault();
         setIsIDError(id === '');
+        setIsEventNameError(eventName === '');
+
         if (id !== ''){
             onOpen();
         }
@@ -63,6 +68,17 @@ const SpreadsheetInputScreen = () => {
         <Center>
             <Card padding={'1rem'} width={'20rem'}>
                 <form onSubmit={handleSubmit}>
+                <FormControl isInvalid={isIDError}>
+                    <FormLabel>
+                        Event Name
+                    </FormLabel>
+                    <Input type='text' value={eventName} onChange={handleEventNameChange} />
+                    {!isEventNameError ? (
+                        <></>
+                    ) : (
+                        <FormErrorMessage>Event Name is required</FormErrorMessage>
+                    )}
+                </FormControl>
                 <FormControl isInvalid={isIDError}>
                     <FormLabel>
                         Spreadsheet ID
@@ -93,6 +109,8 @@ const SpreadsheetInputScreen = () => {
             <ModalHeader>Spreadsheet Data</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
+                {eventName}
+                <br></br>
                 Sourcing Data from spreadsheet: {id}
                 <TableContainer overflowY={'auto'} maxHeight={'17.5rem'}>
                     <Table variant={'striped'}>

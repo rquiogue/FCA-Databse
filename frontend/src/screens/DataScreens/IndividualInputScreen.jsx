@@ -14,6 +14,7 @@ import {
     useDisclosure,
     Select
 } from '@chakra-ui/react'
+import { BASE_URL } from '../../constants'
 
 const IndividualInputScreen = () => {
     const table = ['aasdad', 'asdasd', 'asgasfg', 'dfgjdf', 'aasdwqerqwerad', 'asdwqerqweraasd', 'cvzxcv', 'asdxzcvfeasd', 'adfghsadsasdad', 'aasdfasfcsdasd', 'aasasdfasfdad', 'asdcsxcsacasd',]
@@ -40,7 +41,8 @@ const IndividualInputScreen = () => {
     const [isFamError, setIsFamError] = useState(false);
     const handleFamChange = (e) => setFam(e.target.value);
 
-    const [spreadsheetData, setSpreasheetData] = useState([]);
+    const [response, setResponse] = useState('');
+
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -50,8 +52,26 @@ const IndividualInputScreen = () => {
         setIsEmailError(email === '');
         setIsGradeError(grade === '');
         setIsFamError(fam === '');
-        if (name !== '' && email !== ''){
-            onOpen();
+        const data = {
+            name: name,
+            email: email,
+            major: major,
+            pronouns: pronouns,
+            grade: grade,
+            fam: fam,
+        }
+        if (name !== '' && email !== '' && grade !== '' && fam !== ''){
+            fetch(BASE_URL + '/api/data/individual',{
+                method: 'POST',
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(json => {console.log(json); setResponse(json)})
+                .catch(error => console.log(error))
         }
     };
 
@@ -149,6 +169,10 @@ const IndividualInputScreen = () => {
                 </form>
             </Card>
         </Center>
+        <Spacer/>
+        {response !== '' ? <Center>
+            <Heading>{response}</Heading>
+        </Center> : <></>}
     </div>
   )
 }
