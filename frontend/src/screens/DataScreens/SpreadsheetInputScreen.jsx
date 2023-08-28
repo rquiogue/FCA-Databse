@@ -25,11 +25,14 @@ import {
     Tr,
     Th,
     Td,
+    useToast,
 } from '@chakra-ui/react'
 import Spacer from '../../components/Spacer'
+import { BASE_URL } from '../../constants'
 
 const SpreadsheetInputScreen = () => {
-    const table = ['aasdad', 'asdasd', 'asgasfg', 'dfgjdf', 'aasdwqerqwerad', 'asdwqerqweraasd', 'cvzxcv', 'asdxzcvfeasd', 'adfghsadsasdad', 'aasdfasfcsdasd', 'aasasdfasfdad', 'asdcsxcsacasd',]
+
+    const toast = useToast();
 
     const [eventName, setEventName] = useState('');
     const [isEventNameError, setIsEventNameError] = useState(false);
@@ -48,13 +51,59 @@ const SpreadsheetInputScreen = () => {
         setIsIDError(id === '');
         setIsEventNameError(eventName === '');
 
-        if (id !== ''){
+        if (id !== '' && eventName !== ''){
+            fetch(BASE_URL + `/api/data/spreadsheet/${id}`,{
+                method: 'GET',
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then(response => response.json())
+                .then(json => {console.log(json); setSpreasheetData(json)})
+                .catch(error => console.log(error))
             onOpen();
         }
     };
 
-    const modalSubmitHandler = () => {
-        console.log("Submitted form");
+    
+
+    const modalSubmitHandler = event => {
+        event.preventDefault();
+        const data = {
+            eventName,
+            spreadsheetID: id,
+            numParticipants: spreadsheetData.length,
+            spreadsheetData,
+        }
+        fetch(BASE_URL + `/api/data/spreadsheet`,{
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(json => {
+                console.log(json); 
+                if (json === 'Event Submitted') {
+                    toast({
+                        title: json,
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true,
+                    })
+                } else {
+                    toast({
+                        title: json,
+                        status: 'error',
+                        duration: 9000,
+                        isClosable: true,
+                    })
+                }
+            })
+            .catch(error => console.log(error))
         onClose();
     }
 
@@ -112,6 +161,7 @@ const SpreadsheetInputScreen = () => {
                 {eventName}
                 <br></br>
                 Sourcing Data from spreadsheet: {id}
+                <br></br>
                 <TableContainer overflowY={'auto'} maxHeight={'17.5rem'}>
                     <Table variant={'striped'}>
                         <Thead>
@@ -122,7 +172,7 @@ const SpreadsheetInputScreen = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {table.map((row, i) => <Tr key={row}><Td key={i}>{row}</Td></Tr>)}
+                            {spreadsheetData.map((row, i) => <Tr key={row}><Td key={i}>{row[1]}</Td></Tr>)}
                         </Tbody>
                     </Table>
                 </TableContainer>

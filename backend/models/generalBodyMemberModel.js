@@ -17,11 +17,9 @@ const memberSchema = mongoose.Schema({
     },
     grade: {
         type: String,
-        required: true,
     },
     fam: {
         type: String,
-        required: true,
     },
     events: {
         type: Array,

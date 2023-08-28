@@ -18,7 +18,7 @@ const HomeScreen = () => {
     const headingOnClickHandler = () => {
         toast({
             title: 'Easter Egg unlocked',
-            description: "Wait and see",
+            description: "hehehehehe",
             status: 'success',
             duration: 100000,
             isClosable: true,

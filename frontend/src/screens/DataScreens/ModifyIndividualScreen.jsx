@@ -56,10 +56,6 @@ const ModifyIndividualScreen = () => {
 
   }, []);
 
-    const modalSubmitHandler = () => {
-
-    }
-
   return (
     <div>
         <Spacer/>

@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import cors from 'cors'
 import Member from './models/generalBodyMemberModel.js';
 import Event from './models/eventModel.js'
+import processSpreadsheetData from './spreadsheetAPI/spreadsheetAPIFunctions.js';
 
 dotenv.config();
 
@@ -73,6 +74,64 @@ app.put('/api/data/individual', async (req,res) => {
 
     res.status(200);
     return res.json(`${name} updated`);
+});
+
+app.get('/api/data/spreadsheet/:spreadsheetID', async (req,res) => {
+    const { spreadsheetID } = req.params
+    const spreadsheet = await processSpreadsheetData(spreadsheetID);
+    res.json(spreadsheet);
+});
+
+app.post('/api/data/spreadsheet', async (req,res) => {
+    const { eventName, spreadsheetID, numParticipants, spreadsheetData } = req.body;
+    console.log(`${eventName}, ${spreadsheetID}, ${numParticipants}`);
+    
+    const event = await Event.findOne({spreadsheetID: spreadsheetID});
+
+    console.log(event);
+
+    if (event){
+        console.log(event);
+        res.status(409);
+        return res.json("Event already exists");
+    }
+
+    const eventObject = {eventName, numParticipants, spreadsheetID};
+
+    await Event.create(eventObject);
+
+    for(const row of spreadsheetData) {
+        const member = await Member.findOne({email: row[2]});
+
+        console.log(member);
+
+
+        if (!member){
+            const name = row[1];
+            const email = row[2];
+            const major = row[6];
+            const pronouns = row[4];
+            const grade = row[5];
+            const events = [eventObject];
+            const fam = 'Not in a Fam';
+            await Member.create({name, email, major, pronouns, grade, fam, events});
+        } else {
+            const updatedEventsArray = [...member.events, eventObject];
+            const filterMember = {email: row[2]};
+            const update = {events: updatedEventsArray};
+
+            await Member.findOneAndUpdate(filterMember, update);
+        }
+    }
+
+    res.status(200);
+    res.json("Event Submitted");
+});
+
+app.get('/api/events', async (req,res) => {
+    const events = await Event.find();
+
+    return res.json(events);
 });
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
