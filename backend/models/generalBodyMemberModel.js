@@ -20,6 +20,7 @@ const memberSchema = mongoose.Schema({
     },
     fam: {
         type: String,
+        'default': 'Not in a Fam',
     },
     events: {
         type: Array,

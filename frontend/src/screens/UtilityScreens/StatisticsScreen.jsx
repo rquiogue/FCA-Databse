@@ -22,6 +22,7 @@ const StatisticsScreen = () => {
                 Data Visualization here
             </Heading>
         </Center>
+        
     </div>
   )
 }

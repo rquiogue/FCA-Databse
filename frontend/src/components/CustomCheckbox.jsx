@@ -5,14 +5,13 @@ import {
     Flex,
     Box,
     Text,
-    Center,
 } from '@chakra-ui/react';
 
 const CustomCheckbox = (props) => {
-  const { color, name, currentlyInFam } = props;
+  const { color, value, infam } = props;
     const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } = useCheckbox(props);
 
-  if (currentlyInFam){
+  if (infam){
     state.isChecked = true;
   }
 
@@ -44,7 +43,7 @@ const CustomCheckbox = (props) => {
       >
         {state.isChecked && <Box w={2} h={2} bg={`${color}`} />}
       </Flex>
-      <Text color="gray.700" {...getLabelProps()}>{name}</Text>
+      <Text color="gray.700" {...getLabelProps()}>{value}</Text>
     </chakra.label>
   )
 

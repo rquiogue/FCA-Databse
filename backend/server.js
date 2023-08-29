@@ -134,4 +134,15 @@ app.get('/api/events', async (req,res) => {
     return res.json(events);
 });
 
+app.put('/api/data/fam', async(req,res) => {
+    const {peopleToAdd, fam} = req.body;
+    for(const name of peopleToAdd){
+        const filterMember = {name};
+        const update = {fam}
+        await Member.findOneAndUpdate(filterMember, update);
+    }
+
+    res.json('Added members to fam');
+})
+
 app.listen(port, () => console.log(`Server running on port ${port}`));

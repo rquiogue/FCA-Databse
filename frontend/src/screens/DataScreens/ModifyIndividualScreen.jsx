@@ -28,7 +28,6 @@ import ModifyIndividualModalForm from '../../components/ModifyIndividualModalFor
 
 const ModifyIndividualScreen = () => {
     const [searchName, setSearchName] = useState('');
-
     const onChange = (e) => {setSearchName(e.target.value)};
 
     const [members, setMembers] = useState([]);

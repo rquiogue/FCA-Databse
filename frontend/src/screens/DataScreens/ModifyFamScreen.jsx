@@ -14,7 +14,11 @@ import {
     StackDivider,
     Checkbox, 
     CheckboxGroup,
-    Flex
+    Flex,
+    useCheckboxGroup,
+    Button,
+    Text,
+    useToast,
 } from '@chakra-ui/react'
 import Spacer from '../../components/Spacer'
 import { useState, useEffect } from 'react'
@@ -23,6 +27,9 @@ import { BASE_URL } from '../../constants'
 import CustomCheckbox from '../../components/CustomCheckbox'
 
 const ModifyFamScreen = () => {
+
+    const toast = useToast();
+
     const [fam, setFam] = useState('');
     const handleFamChange = (e) => {
         setFam(e.target.value);
@@ -51,7 +58,6 @@ const ModifyFamScreen = () => {
             default:
               // code block
           }
-        console.log(color);
     }
 
     const [searchName, setSearchName] = useState('');
@@ -77,6 +83,34 @@ const ModifyFamScreen = () => {
         .catch(error => console.error(error));
   
     }, []);
+
+    const { value, getCheckboxProps } = useCheckboxGroup({
+        defaultValue: [],
+    })
+
+    const submitHandler = () => {
+        const data = {
+            peopleToAdd: value, 
+            fam: fam,
+        };
+        fetch(BASE_URL + '/api/data/fam', {
+            method: 'PUT',
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+          .then(response => response.json())
+          .then(json => toast({
+                    title: json,
+                    description: "Reload the page to update another fam",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                  }))
+          .catch(error => console.error(error));
+    }
 
   return (
     <div>
@@ -116,13 +150,25 @@ const ModifyFamScreen = () => {
                         </Heading>
                     </CardHeader>
                     <CardBody>
+                        <Text>If you want to remove someone from the fam, select 'Not in a Fam'</Text>
+                        <Text>The selected people to add are: {value.sort().join(' and ')}</Text>
                         <Center>
+                            <Button
+                                my={4}
+                                colorScheme='blue'
+                                onClick={() => submitHandler()}
+                            >
+                                Submit
+                            </Button>
+                            </Center>
+                        <Center>
+                            
                         <CheckboxGroup color={color}>
                             <Stack divider={<StackDivider/>} spacing='1'>
                             {
-                                members.filter(member => member.name.toLowerCase().includes(searchName.toLowerCase())).map((member) => (
-                                    <Flex direction='row'>
-                                        <CustomCheckbox color={color} name={member.name} currentlyInFam={member.fam === fam}></CustomCheckbox>
+                                Array.isArray(members) && members.map((member) => (
+                                    <Flex key={member._id} direction='row'>
+                                        <CustomCheckbox {...getCheckboxProps({color, value:member.name, infam:member.fam===fam ? 1: 0 })}></CustomCheckbox>
                                     </Flex>
                                 ))
                             }
