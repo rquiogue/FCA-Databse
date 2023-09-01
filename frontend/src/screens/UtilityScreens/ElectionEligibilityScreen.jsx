@@ -24,6 +24,8 @@ const ElectionEligibilityScreen = () => {
 
     const [members, setMembers] = useState([]);
 
+    const meetingsNeeded = 4;
+
 
     useEffect(()=>{
       fetch(BASE_URL + '/api/members', {
@@ -66,8 +68,8 @@ const ElectionEligibilityScreen = () => {
                             {'\t'} 
                             {member.events.length}
                             {'\t'} 
-                            {member.events.length >= 1 && <CheckCircleIcon color={'green.500'}/>}
-                            {member.events.length < 1 && <WarningIcon color={'red.500'}/>}
+                            {member.events.length >= meetingsNeeded && <CheckCircleIcon color={'green.500'}/>}
+                            {member.events.length < meetingsNeeded && <WarningIcon color={'red.500'}/>}
                           </Box>
                       </Flex>
                     </Box>

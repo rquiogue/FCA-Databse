@@ -73,7 +73,7 @@ async function authorize() {
 async function processInformation(auth, id) {
   const sheets = google.sheets({version: 'v4', auth});
   const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1jkNvcxxiAy5jbVrWZGAYEavsopOPF0JkHx0s4fX8ioc',
+    spreadsheetId: id,
     range: 'Form Responses 1!A2:I',
   });
   const rows = res.data.values;

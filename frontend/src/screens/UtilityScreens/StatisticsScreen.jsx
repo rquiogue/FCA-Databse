@@ -2,6 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router'
 import Spacer from '../../components/Spacer';
 import { Center, Heading } from '@chakra-ui/react';
+import ClassStatistics from '../../components/ClassStatistics';
+import FamStatistics from '../../components/FamStatistics';
+import MeetingStatistics from '../../components/MeetingStatistics';
 
 const StatisticsScreen = () => {
     const {filter} = useParams();
@@ -17,12 +20,9 @@ const StatisticsScreen = () => {
             </Heading>
         </Center>
         <Spacer></Spacer>
-        <Center>
-            <Heading>
-                Data Visualization here
-            </Heading>
-        </Center>
-        
+        {filter === 'class' && <ClassStatistics/>}
+        {filter === 'fam' && <FamStatistics/>}
+        {filter === 'meeting' && <MeetingStatistics/>}
     </div>
   )
 }

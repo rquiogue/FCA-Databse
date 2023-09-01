@@ -79,7 +79,7 @@ const UtilitiesBasicScreen = () => {
                             Random Member Generator
                         </Heading>
                         <Text pt='2' fontSize='md'>
-                            Select a general body member, either randomlly or weighted
+                            Select a general body member, either randomly or weighted
                         </Text>
                     </Box>
                 </Link>
@@ -114,7 +114,7 @@ const UtilitiesBasicScreen = () => {
                     color: 'white'
                 }}
             >
-                <Link href='/utilities/statistics/meetings' style={{textDecoration: 'none'}}>
+                <Link href='/utilities/statistics/meeting' style={{textDecoration: 'none'}}>
                     <Box padding='0.5rem'
                     >
                         <Heading size='md' textTransform='uppercase'>

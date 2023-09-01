@@ -166,7 +166,7 @@ const HomeInfoCards = () => {
                                 Random Member Generator
                             </Heading>
                             <Text pt='2' fontSize='sm'>
-                                Select a general body member, either randomlly or weighted
+                                Select a general body member, either randomly or weighted
                             </Text>
                             </Box>
                             </Link>
@@ -188,7 +188,7 @@ const HomeInfoCards = () => {
                             </Text>
                             </Box>
                             </Link>
-                            <Link href='/utilities/statistics/meetings' style={{textDecoration: 'none'}}>
+                            <Link href='/utilities/statistics/meeting' style={{textDecoration: 'none'}}>
                             <Box padding='0.5rem'
                                 borderRadius={'0.5rem'}
                                 style={{transition: '0.5s'}} 
